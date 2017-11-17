@@ -3,8 +3,8 @@
 require 'setup.php';
 
 $query = "
-    SELECT `posts`.*
-    FROM `posts`
+    SELECT *
+    FROM `logs`
     WHERE 1
 ";
 

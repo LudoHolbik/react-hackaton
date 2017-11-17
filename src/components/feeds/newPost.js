@@ -48,6 +48,8 @@ export default class NewPost extends React.Component{
         })
     }
 
+    
+
     render() {
         return (
 

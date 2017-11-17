@@ -211,14 +211,14 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                     'form',
                     { className: 'container' },
-                    _react2.default.createElement('input', { type: 'radio', id: 'init', name: 'control', defaultChecked: 'checked' }),
-                    _react2.default.createElement('input', { type: 'radio', id: 'stop', name: 'control' }),
-                    _react2.default.createElement('input', { type: 'radio', id: 'start', name: 'control' }),
-                    _react2.default.createElement('input', { type: 'reset', id: 'reset', name: 'control' }),
-                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_1', name: 'lap' }),
-                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_2', name: 'lap' }),
-                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_3', name: 'lap' }),
-                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_4', name: 'lap' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'radio', id: 'init', name: 'control', defaultChecked: 'checked' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'radio', id: 'stop', name: 'control' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'radio', id: 'start', name: 'control' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'reset', id: 'reset', name: 'control' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'checkbox', id: 'lap_1', name: 'lap' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'checkbox', id: 'lap_2', name: 'lap' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'checkbox', id: 'lap_3', name: 'lap' }),
+                    _react2.default.createElement('input', { className: 'timerlabel', type: 'checkbox', id: 'lap_4', name: 'lap' }),
                     _react2.default.createElement(
                         'time',
                         null,
@@ -278,6 +278,10 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _jquery = __webpack_require__(4);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -309,7 +313,7 @@ var LeftMenu = function (_React$Component) {
             var _this2 = this;
 
             event.preventDefault(); // stop the form from actually being submitted
-            $.ajax({
+            _jquery2.default.ajax({
                 method: 'post',
                 url: 'api/create-posts.php',
                 data: { // where we get data from
@@ -320,7 +324,7 @@ var LeftMenu = function (_React$Component) {
                 },
                 success: function success(data) {
                     // => doesnt need binding
-                    _this2.props.functionToRun();
+
 
                     _this2.setState({
                         new_post_text: '',
@@ -367,7 +371,9 @@ var LeftMenu = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'form',
-                    { action: '' },
+                    { action: '', onSubmit: function onSubmit(event) {
+                            return _this3.formSubmitted(event);
+                        } },
                     'Name:',
                     _react2.default.createElement('input', { type: 'text', name: 'firstname', value: this.state.new_name,
                         onChange: function onChange(event) {
@@ -491,7 +497,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(6);
+var _jquery = __webpack_require__(4);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -644,7 +650,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(6);
+var _jquery = __webpack_require__(4);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -738,7 +744,7 @@ exports.default = NewPost;
 
 
 Object.defineProperty(exports, "__esModule", {
-            value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -760,50 +766,50 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Post = function (_React$Component) {
-            _inherits(Post, _React$Component);
+    _inherits(Post, _React$Component);
 
-            function Post() {
-                        _classCallCheck(this, Post);
+    function Post() {
+        _classCallCheck(this, Post);
 
-                        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
-            }
+        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+    }
 
-            _createClass(Post, [{
-                        key: 'render',
-                        value: function render() {
-                                    return _react2.default.createElement(
-                                                'li',
-                                                { className: 'post' },
-                                                _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'user' },
-                                                            'You'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'time' },
-                                                            this.props.published_at
-                                                ),
-                                                _react2.default.createElement(
-                                                            'h3',
-                                                            null,
-                                                            this.props.title
-                                                ),
-                                                _react2.default.createElement(
-                                                            'p',
-                                                            null,
-                                                            this.props.text
-                                                ),
-                                                _react2.default.createElement(
-                                                            'p',
-                                                            null,
-                                                            this.props.likes
-                                                )
-                                    );
-                        }
-            }]);
+    _createClass(Post, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'li',
+                { className: 'post' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'user' },
+                    'You'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'time' },
+                    this.props.published_at
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    this.props.title
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.text
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.likes
+                )
+            );
+        }
+    }]);
 
-            return Post;
+    return Post;
 }(_react2.default.Component);
 
 exports.default = Post;
@@ -829,11 +835,11 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(6);
+var _jquery = __webpack_require__(4);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Log = __webpack_require__(38);
+var _Log = __webpack_require__(36);
 
 var _Log2 = _interopRequireDefault(_Log);
 
@@ -959,9 +965,7 @@ var LogTable = function (_React$Component) {
 exports.default = LogTable;
 
 /***/ }),
-/* 36 */,
-/* 37 */,
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

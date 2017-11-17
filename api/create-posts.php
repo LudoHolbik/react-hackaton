@@ -2,9 +2,9 @@
 
 require 'setup.php';
 
-$title = isset($_POST['firstname']) ? $_POST['firstname'] : null;
-$text = isset($_POST['desc']) ? $_POST['desc'] : null;
-$duration = isset($_POST['Time']) ? $_POST['Time'] : null;
+$title = isset($_POST['name']) ? $_POST['name'] : null;
+$text = isset($_POST['text']) ? $_POST['text'] : null;
+$duration = isset($_POST['duration']) ? $_POST['duration'] : null;
 
 if(!trim($text))
 {
@@ -24,7 +24,7 @@ $query = "
     (?, ?, ?)
 ";
 
-$stmt = db::execute($query, [$title, $text, $duration, date('Y-m-d H:i:s')]);
+$stmt = db::execute($query, [$title, $text, $duration]);
 
 $id = db::pdo()->lastInsertId();
 

@@ -9,7 +9,7 @@ $query = "
     `text` varchar(127) NULL COLLATE utf8_general_ci DEFAULT NULL,
     `task_id` int NULL COLLATE utf8_general_ci DEFAULT NULL,
     `duration` int NULL COLLATE utf8_general_ci DEFAULT NULL,
-    `loged_at` datetime NULL DEFAULT NULL,
+    `loged_at` datetime NULL DEFAULT  NULL,
     PRIMARY KEY (`id`)
     
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

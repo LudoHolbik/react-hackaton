@@ -21,8 +21,12 @@ export default class LogTable extends React.Component{
     }
     
     componentDidMount(){
+        this.refreshLogs();
+    }
+    
+    refreshLogs(){
         var self = this;
-
+    
         $.ajax ({
             method: "get",
             url: "api/all-logs.php",
@@ -32,7 +36,7 @@ export default class LogTable extends React.Component{
                     logs: data.logs
                 });
             }
-        })
+        });
     }
 
     render() {

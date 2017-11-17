@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import $ from 'jquery';
 
 export default class LeftMenu extends React.Component{
    
@@ -31,8 +32,7 @@ export default class LeftMenu extends React.Component{
 
             },  
             success: (data) => { // => doesnt need binding
-                this.props.functionToRun();
-
+                
 
                 this.setState({
                     new_post_text: '',

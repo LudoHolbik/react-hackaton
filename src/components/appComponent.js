@@ -5,6 +5,7 @@ import Header from './headerComponent';
 import LeftMenu from './leftMenuComponent';
 import Contacts from './contactsMenuComponent';
 import Feed from './feedComponent';
+import LogTable from './LogTable';
 
 export default class App extends React.Component
 {
@@ -24,16 +25,18 @@ export default class App extends React.Component
 
             <Header ref={ (el) => { this.header = el; } } />
 
-                    <div>
+            <div>
 
-                        <LeftMenu />
+                <LeftMenu />
 
-                        <Feed postWasAdded = {this.postWasAdded.bind(this)}/>
+                <Feed postWasAdded = {this.postWasAdded.bind(this)}/>
 
-                        <Contacts />                
-                                          
-                    </div>
 
+                <Contacts />                
+                                    
+            </div>
+
+            <LogTable />
         
 
     </div>

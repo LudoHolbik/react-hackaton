@@ -281,7 +281,6 @@ var LeftMenu = function (_React$Component) {
                 _react2.default.createElement(
                     'h2',
                     null,
-<<<<<<< HEAD
                     'Insert Form'
                 ),
                 _react2.default.createElement(
@@ -309,24 +308,6 @@ var LeftMenu = function (_React$Component) {
                         null,
                         'Stop'
                     )
-=======
-                    'You'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Selected posts'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Messenger'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Marketplace'
->>>>>>> Vojta
                 )
             );
         }

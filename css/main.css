@@ -44,10 +44,24 @@ header {
   box-sizing: border-box;
 }
 
-input,
-label {
+
+ label {
   display: none;
 }
+
+#init {
+    display: none;
+}
+#start {
+    display: none;
+}
+#stop {
+    display: none;
+}
+#reset {
+    display: none;
+}
+
 
 .container {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -190,7 +204,7 @@ label[for="stop"] {
 label[for="start"],
 label[for="stop"] {
   right: 0;
-  left: 350px;
+  left: 400px;
   top: -140px;
 }
 

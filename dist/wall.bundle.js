@@ -304,7 +304,6 @@ var LeftMenu = function (_React$Component) {
                 _react2.default.createElement(
                     'h2',
                     null,
-<<<<<<< HEAD
                     'Insert Form'
                 ),
                 _react2.default.createElement(
@@ -332,24 +331,6 @@ var LeftMenu = function (_React$Component) {
                         null,
                         'Stop'
                     )
-=======
-                    'You'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Selected posts'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Messenger'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Marketplace'
->>>>>>> Vojta
                 )
             );
         }
@@ -454,7 +435,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(8);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -607,7 +588,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(8);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -701,7 +682,7 @@ exports.default = NewPost;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+            value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -723,50 +704,50 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Post = function (_React$Component) {
-    _inherits(Post, _React$Component);
+            _inherits(Post, _React$Component);
 
-    function Post() {
-        _classCallCheck(this, Post);
+            function Post() {
+                        _classCallCheck(this, Post);
 
-        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
-    }
+                        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+            }
 
-    _createClass(Post, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'li',
-                { className: 'post' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'user' },
-                    'You'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'time' },
-                    this.props.published_at
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    this.props.title
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    this.props.text
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    this.props.likes
-                )
-            );
-        }
-    }]);
+            _createClass(Post, [{
+                        key: 'render',
+                        value: function render() {
+                                    return _react2.default.createElement(
+                                                'li',
+                                                { className: 'post' },
+                                                _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'user' },
+                                                            'You'
+                                                ),
+                                                _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'time' },
+                                                            this.props.published_at
+                                                ),
+                                                _react2.default.createElement(
+                                                            'h3',
+                                                            null,
+                                                            this.props.title
+                                                ),
+                                                _react2.default.createElement(
+                                                            'p',
+                                                            null,
+                                                            this.props.text
+                                                ),
+                                                _react2.default.createElement(
+                                                            'p',
+                                                            null,
+                                                            this.props.likes
+                                                )
+                                    );
+                        }
+            }]);
 
-    return Post;
+            return Post;
 }(_react2.default.Component);
 
 exports.default = Post;
@@ -792,11 +773,11 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(8);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Task = __webpack_require__(37);
+var _Task = __webpack_require__(36);
 
 var _Task2 = _interopRequireDefault(_Task);
 
@@ -913,8 +894,7 @@ var LogTable = function (_React$Component) {
 exports.default = LogTable;
 
 /***/ }),
-/* 36 */,
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

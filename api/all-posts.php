@@ -3,23 +3,23 @@
 require 'setup.php';
 
 $query = "
-    SELECT `posts`.*
-    FROM `posts`
+    SELECT `jobs`.*
+    FROM `jobs`
     WHERE 1
 ";
 
 $stmt = db::execute($query);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-$posts = array();
+$jobs = array();
 foreach($stmt as $row)
 {
-    $posts[] = $row;
+    $jobs[] = $row;
 }
 
 $response = array(
     'status' => 'OK',
-    'posts' => $posts
+    'jobs' => $jobs
 );
 
 echo json_encode($response);

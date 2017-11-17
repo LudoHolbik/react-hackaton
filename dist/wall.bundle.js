@@ -182,7 +182,7 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                     'form',
                     { className: 'container' },
-                    _react2.default.createElement('input', { type: 'radio', id: 'init', name: 'control', checked: 'checked' }),
+                    _react2.default.createElement('input', { type: 'radio', id: 'init', name: 'control', defaultChecked: 'checked' }),
                     _react2.default.createElement('input', { type: 'radio', id: 'stop', name: 'control' }),
                     _react2.default.createElement('input', { type: 'radio', id: 'start', name: 'control' }),
                     _react2.default.createElement('input', { type: 'reset', id: 'reset', name: 'control' }),

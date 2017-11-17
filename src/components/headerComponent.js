@@ -30,7 +30,7 @@ constructor(props){
 
 
 <form className="container">
-    <input type="radio" id="init" name="control" checked="checked"/>
+    <input type="radio" id="init" name="control" defaultChecked="checked"/>
     <input type="radio" id="stop" name="control"/>
     <input type="radio" id="start" name="control"/>
     <input type="reset" id="reset" name="control"/>

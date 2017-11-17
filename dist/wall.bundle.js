@@ -290,7 +290,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(6);
+var _jquery = __webpack_require__(4);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -700,12 +700,10 @@ var NewPost = function (_React$Component) {
                 url: 'api/create-posts.php',
                 data: { // where we get data from
                     text: this.state.new_post_text
-
                 },
                 success: function success(data) {
                     // => doesnt need binding
                     _this2.props.functionToRun();
-
                     _this2.setState({
                         new_post_text: ''
                     });
@@ -886,6 +884,11 @@ var LogTable = function (_React$Component) {
     _createClass(LogTable, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            this.refreshLogs();
+        }
+    }, {
+        key: 'refreshLogs',
+        value: function refreshLogs() {
             var self = this;
 
             _jquery2.default.ajax({

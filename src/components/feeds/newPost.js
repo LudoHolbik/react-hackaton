@@ -25,12 +25,9 @@ export default class NewPost extends React.Component{
             url: 'api/create-posts.php',
             data: {                 // where we get data from
                 text: this.state.new_post_text
-
             },  
             success: (data) => { // => doesnt need binding
                 this.props.functionToRun();
-
-
                 this.setState({
                     new_post_text: ''
                 });

@@ -6,6 +6,7 @@ import LeftMenu from './leftMenuComponent';
 import Contacts from './contactsMenuComponent';
 import Feed from './feedComponent';
 import LogTable from './LogTable';
+import TaskTable from './TaskTable';
 
 export default class App extends React.Component
 {
@@ -23,27 +24,19 @@ export default class App extends React.Component
 
             <div id="page">
 
-            <Header ref={ (el) => { this.header = el; } } />
+                <Header ref={ (el) => { this.header = el; } } />
+                <div id="content">
+                    <div id="form">
+                        <LeftMenu />
+                        <Feed postWasAdded = {this.postWasAdded.bind(this)}/>                            
+                    </div>
 
-            <div>
-
-                <LeftMenu />
-
-                <Feed postWasAdded = {this.postWasAdded.bind(this)}/>
-
-
-                <Contacts />                
-                                    
+                    <div id="tables">
+                        <LogTable />
+                        <TaskTable />
+                    </div>
+                </div>
             </div>
-
-            <LogTable />
-        
-
-    </div>
-
-
-    )
-
-}
-
+        )
+    }
 }

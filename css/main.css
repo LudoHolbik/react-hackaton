@@ -3,7 +3,7 @@
 }
 
 html {
-    font-family: Helvetica, sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background: #4267B2;
+    background: black;
     color: #ffffff;
 }
 
@@ -29,8 +29,35 @@ header {
     white-space: nowrap;
 }
 
+#content {
+  display: flex;
+}
 
+#form {
+  width: 25%;
+  flex-grow: 1;
+}
 
+#tables {
+  flex-grow: 3;  
+}
+
+#tables > div {
+  margin-bottom: 3em;
+}
+
+#tables > div > h3 {
+  font-size: 3em;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+table td {
+  border: 1px solid black;
+}
 
 <!--
 .timer {
@@ -61,7 +88,6 @@ header {
 #reset {
     display: none;
 }
-
 
 .container {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

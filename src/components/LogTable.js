@@ -28,7 +28,6 @@ export default class LogTable extends React.Component{
             url: "api/all-logs.php",
             dataType: "json",
             success: (data) => {
-                console.log(data);
                 self.setState({
                     logs: data.logs
                 });
@@ -42,12 +41,12 @@ export default class LogTable extends React.Component{
             let log_data = this.state.logs[i];
             logs[i] = <Log 
                         key={ log_data.id }
-                        name = { log_data.name}
-                        text={ log_data.text}
-                        task_id = { log_data.task_id}
-                        duration = { log_data.duration}
-                        loged_at = { log_data.loged_at}
-                        task_name = { log_data.task_name}
+                        name = { log_data.name }
+                        text={ log_data.text }
+                        task_id = { log_data.task_id }
+                        duration = { log_data.duration }
+                        loged_at = { log_data.loged_at }
+                        task_name = { log_data.task_name }
             />;
         }
 

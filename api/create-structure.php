@@ -21,6 +21,7 @@ $query = "
     CREATE TABLE IF NOT EXISTS `task` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(127) NULL COLLATE utf8_general_ci DEFAULT NULL,
+    `duration` int NULL COLLATE utf8_general_ci DEFAULT NULL,
     PRIMARY KEY (`id`)
     
     ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -40,10 +41,10 @@ $stmt = db::execute($seed);
 
 $seed = "
     INSERT INTO `task` 
-    (`id`, `name`) 
+    (`id`, `name`, `duration`) 
     VALUES
-    (1, 'Toilet services'),
-    (2, 'Ride of The Valkyries')
+    (1, 'Toilet services', '6'),
+    (2, 'Ride of The Valkyries', '0')
     ";
 
 $stmt = db::execute($seed);

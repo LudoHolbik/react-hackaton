@@ -3,16 +3,15 @@ import ReactDOM from 'react-dom';
 
 import $ from 'jquery';
 
-import Log from './Log';
+import Task from './Task';
 
 export default class LogTable extends React.Component{
     constructor(props) {
         super(props);
 
         this.state = {
-            logs: [],
+            tasks: [],
 
-            orderby:'loged_at',
             limit: 10,
             from_friends_only: false,
             current_datetime: null
@@ -25,43 +24,35 @@ export default class LogTable extends React.Component{
 
         $.ajax ({
             method: "get",
-            url: "api/all-logs.php",
+            url: "api/all-tasks.php",
             dataType: "json",
             success: (data) => {
                 console.log(data);
                 self.setState({
-                    logs: data.logs
+                    tasks: data.tasks
                 });
             }
         })
     }
 
     render() {
-        let logs = [];
-        for(let i in this.state.logs){
-            let log_data = this.state.logs[i];
-            logs[i] = <Log 
-                        key={ log_data.id }
-                        name = { log_data.name}
-                        text={ log_data.text}
-                        task_id = { log_data.task_id}
-                        duration = { log_data.duration}
-                        loged_at = { log_data.loged_at}
-                        task_name = { log_data.task_name}
+        let tasks = [];
+        for(let i in this.state.tasks){
+            let task_data = this.state.tasks[i];
+            tasks[i] = <Task 
+                        key={ task_data.id }
+                        name = { task_data.name}
             />;
         }
 
         return (
             <div>
-                <h3> Last Logs</h3>
-                <table className="logtable">
+                <h3> Tasks </h3>
+                <table className="tasktable">
                     <thead>
                         <tr>
-                            <th>Task</th>
-                            <th>Who?</th>
-                            <th>What?</th>
-                            <th>How long?</th>
-                            <th>Logged_at</th>                    
+                            <th>Name</th>
+                            <th>Duration</th>                   
                         </tr>
                     </thead>
                     <tbody>

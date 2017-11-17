@@ -777,9 +777,9 @@ var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Task = __webpack_require__(36);
+var _Log = __webpack_require__(38);
 
-var _Task2 = _interopRequireDefault(_Task);
+var _Log2 = _interopRequireDefault(_Log);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -832,7 +832,7 @@ var LogTable = function (_React$Component) {
             var logs = [];
             for (var i in this.state.logs) {
                 var log_data = this.state.logs[i];
-                logs[i] = _react2.default.createElement(_Task2.default, {
+                logs[i] = _react2.default.createElement(_Log2.default, {
                     key: log_data.id,
                     name: log_data.name,
                     text: log_data.text,
@@ -844,45 +844,54 @@ var LogTable = function (_React$Component) {
             }
 
             return _react2.default.createElement(
-                'table',
-                { className: 'logtable' },
+                'div',
+                null,
                 _react2.default.createElement(
-                    'thead',
+                    'h3',
                     null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'Task'
-                        ),
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'Who?'
-                        ),
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'What?'
-                        ),
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'How long?'
-                        ),
-                        _react2.default.createElement(
-                            'th',
-                            null,
-                            'Logged_at'
-                        )
-                    )
+                    ' Last Logs'
                 ),
                 _react2.default.createElement(
-                    'tbody',
-                    null,
-                    logs
+                    'table',
+                    { className: 'logtable' },
+                    _react2.default.createElement(
+                        'thead',
+                        null,
+                        _react2.default.createElement(
+                            'tr',
+                            null,
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Task'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Who?'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'What?'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'How long?'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Logged_at'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        logs
+                    )
                 )
             );
         }
@@ -894,7 +903,9 @@ var LogTable = function (_React$Component) {
 exports.default = LogTable;
 
 /***/ }),
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -934,6 +945,7 @@ var Task = function (_React$Component) {
     _createClass(Task, [{
         key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
                 'tr',
                 { className: 'task' },

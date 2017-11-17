@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-export default class Log extends React.Component{
+export default class Task extends React.Component{
     render() {
+        
         return (
-            <td>Job Jobs</td>
-            <td>Cleaned toilet</td>
-            <td>5 mins</td>
-            <td>12/02/2017</td>
+
+        <tr className="task">
+            <td>{this.props.task_name}</td>
+            <td>{this.props.name}</td>
+            <td>{this.props.text}</td>
+            <td>{this.props.duration}</td>
+            <td>{this.props.loged_at}</td>
+        </tr>
         )
     }
 }

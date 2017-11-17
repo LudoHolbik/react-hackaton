@@ -89,6 +89,10 @@ var _LogTable = __webpack_require__(35);
 
 var _LogTable2 = _interopRequireDefault(_LogTable);
 
+var _TaskTable = __webpack_require__(37);
+
+var _TaskTable2 = _interopRequireDefault(_TaskTable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -127,12 +131,20 @@ var App = function (_React$Component) {
                     } }),
                 _react2.default.createElement(
                     'div',
-                    null,
-                    _react2.default.createElement(_leftMenuComponent2.default, null),
-                    _react2.default.createElement(_feedComponent2.default, { postWasAdded: this.postWasAdded.bind(this) }),
-                    _react2.default.createElement(_contactsMenuComponent2.default, null)
-                ),
-                _react2.default.createElement(_LogTable2.default, null)
+                    { id: 'content' },
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'form' },
+                        _react2.default.createElement(_leftMenuComponent2.default, null),
+                        _react2.default.createElement(_feedComponent2.default, { postWasAdded: this.postWasAdded.bind(this) })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'tables' },
+                        _react2.default.createElement(_LogTable2.default, null),
+                        _react2.default.createElement(_TaskTable2.default, null)
+                    )
+                )
             );
         }
     }]);
@@ -881,7 +893,6 @@ var LogTable = function (_React$Component) {
                 url: "api/all-logs.php",
                 dataType: "json",
                 success: function success(data) {
-                    console.log(data);
                     self.setState({
                         logs: data.logs
                     });
@@ -993,22 +1004,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Task = function (_React$Component) {
-    _inherits(Task, _React$Component);
+var Log = function (_React$Component) {
+    _inherits(Log, _React$Component);
 
-    function Task() {
-        _classCallCheck(this, Task);
+    function Log() {
+        _classCallCheck(this, Log);
 
-        return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Log.__proto__ || Object.getPrototypeOf(Log)).apply(this, arguments));
     }
 
-    _createClass(Task, [{
+    _createClass(Log, [{
         key: 'render',
         value: function render() {
 
             return _react2.default.createElement(
                 'tr',
-                { className: 'task' },
+                { className: 'log' },
                 _react2.default.createElement(
                     'td',
                     null,
@@ -1033,6 +1044,199 @@ var Task = function (_React$Component) {
                     'td',
                     null,
                     this.props.loged_at
+                )
+            );
+        }
+    }]);
+
+    return Log;
+}(_react2.default.Component);
+
+exports.default = Log;
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(1);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _jquery = __webpack_require__(4);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Task = __webpack_require__(38);
+
+var _Task2 = _interopRequireDefault(_Task);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LogTable = function (_React$Component) {
+    _inherits(LogTable, _React$Component);
+
+    function LogTable(props) {
+        _classCallCheck(this, LogTable);
+
+        var _this = _possibleConstructorReturn(this, (LogTable.__proto__ || Object.getPrototypeOf(LogTable)).call(this, props));
+
+        _this.state = {
+            tasks: [],
+
+            limit: 10,
+            from_friends_only: false,
+            current_datetime: null
+
+        };
+        return _this;
+    }
+
+    _createClass(LogTable, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var self = this;
+
+            _jquery2.default.ajax({
+                method: "get",
+                url: "api/all-tasks.php",
+                dataType: "json",
+                success: function success(data) {
+                    self.setState({
+                        tasks: data.tasks
+                    });
+                }
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var tasks = [];
+            for (var i in this.state.tasks) {
+                var task_data = this.state.tasks[i];
+                tasks[i] = _react2.default.createElement(_Task2.default, {
+                    key: task_data.id,
+                    name: task_data.name,
+                    duration: task_data.duration
+                });
+            }
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    ' Tasks '
+                ),
+                _react2.default.createElement(
+                    'table',
+                    { className: 'tasktable' },
+                    _react2.default.createElement(
+                        'thead',
+                        null,
+                        _react2.default.createElement(
+                            'tr',
+                            null,
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Name'
+                            ),
+                            _react2.default.createElement(
+                                'th',
+                                null,
+                                'Duration'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tbody',
+                        null,
+                        tasks
+                    )
+                )
+            );
+        }
+    }]);
+
+    return LogTable;
+}(_react2.default.Component);
+
+exports.default = LogTable;
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(1);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Task = function (_React$Component) {
+    _inherits(Task, _React$Component);
+
+    function Task() {
+        _classCallCheck(this, Task);
+
+        return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
+    }
+
+    _createClass(Task, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'tr',
+                { className: 'task' },
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.name
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.duration
                 )
             );
         }

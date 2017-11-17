@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-export default class Task extends React.Component{
+export default class Log extends React.Component{
     render() {
         
         return (
 
-        <tr className="task">
+        <tr className="log">
             <td>{this.props.task_name}</td>
             <td>{this.props.name}</td>
             <td>{this.props.text}</td>

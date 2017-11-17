@@ -3,24 +3,23 @@
 require 'setup.php';
 
 $query = "
-    SELECT `logs`.*, `task`.`name` AS `task_name`
-    FROM `logs`
-    INNER JOIN `task` ON `logs`.`task_id` = `task`.`id`
+    SELECT `task`.*
+    FROM `task`
     WHERE 1
 ";
 
 $stmt = db::execute($query);
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-$logs = array();
+$tasks = array();
 foreach($stmt as $row)
 {
-    $logs[] = $row;
+    $tasks[] = $row;
 }
 
 $response = array(
     'status' => 'OK',
-    'logs' => $logs
+    'tasks' => $tasks
 );
 
 echo json_encode($response);

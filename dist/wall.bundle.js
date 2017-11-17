@@ -10,7 +10,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -40,7 +40,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -59,6 +59,10 @@ var _contactsMenuComponent2 = _interopRequireDefault(_contactsMenuComponent);
 var _feedComponent = __webpack_require__(32);
 
 var _feedComponent2 = _interopRequireDefault(_feedComponent);
+
+var _LogTable = __webpack_require__(35);
+
+var _LogTable2 = _interopRequireDefault(_LogTable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -102,7 +106,8 @@ var App = function (_React$Component) {
                     _react2.default.createElement(_leftMenuComponent2.default, null),
                     _react2.default.createElement(_feedComponent2.default, { postWasAdded: this.postWasAdded.bind(this) }),
                     _react2.default.createElement(_contactsMenuComponent2.default, null)
-                )
+                ),
+                _react2.default.createElement(_LogTable2.default, null)
             );
         }
     }]);
@@ -130,7 +135,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -202,7 +207,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -276,7 +281,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -350,11 +355,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -504,11 +509,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -612,7 +617,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -672,6 +677,189 @@ var Post = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Post;
+
+/***/ }),
+
+/***/ 35:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(1);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LogTable = function (_React$Component) {
+    _inherits(LogTable, _React$Component);
+
+    function LogTable(props) {
+        _classCallCheck(this, LogTable);
+
+        var _this = _possibleConstructorReturn(this, (LogTable.__proto__ || Object.getPrototypeOf(LogTable)).call(this, props));
+
+        _this.state = {
+            logs: [],
+
+            orderby: 'date',
+            limit: 10,
+            from_friends_only: false,
+            current_datetime: null
+
+        };
+        return _this;
+    }
+
+    // componentDidMount() {
+
+    //    this.refreshLogs();
+    // }
+
+    // refreshLogs() {
+
+    //     $.ajax ({
+    //         method: 'get',
+    //         url: 'api/all-logs.php',
+    //         dataType: 'json',
+    //         success: (data) => {
+
+    //             console.log(data);
+    //             this.setState({
+    //                 logs: data.logs
+    //             });
+    //         }
+    //     })  
+
+    // }
+
+    // newLogWasAdded(){
+
+    //     this.refreshLogs();
+    //     this.props.logWasAdded();
+    // }
+
+    _createClass(LogTable, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'logtable' },
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Task'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Who?'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'What?'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'How long?'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Logged_at'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            { rowSpan: '2' },
+                            'Toilet Services'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Job Jobs'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Cleaned toilet'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '5 mins'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '12/02/2017'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Juan Carlos'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Messed up toilet'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '1 mins'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '12/02/2017'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return LogTable;
+}(_react2.default.Component);
+
+exports.default = LogTable;
 
 /***/ })
 

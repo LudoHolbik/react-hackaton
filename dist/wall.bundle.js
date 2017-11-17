@@ -278,11 +278,7 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-var _jquery = __webpack_require__(4);
-=======
 var _jquery = __webpack_require__(6);
->>>>>>> aa0600656d732c907db7c155327ac73c3de53d2e
 
 var _jquery2 = _interopRequireDefault(_jquery);
 

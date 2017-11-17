@@ -833,7 +833,7 @@ var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Log = __webpack_require__(38);
+var _Log = __webpack_require__(36);
 
 var _Log2 = _interopRequireDefault(_Log);
 
@@ -959,9 +959,7 @@ var LogTable = function (_React$Component) {
 exports.default = LogTable;
 
 /***/ }),
-/* 36 */,
-/* 37 */,
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

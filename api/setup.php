@@ -1,6 +1,6 @@
 <?php
 
-define('DBNAME', 'react_wall');
+define('DBNAME', 'the-leftovers');
 define('DBHOST', 'localhost');
 define('DBCHARSET', 'utf8');
 define('DBUSER', 'root');

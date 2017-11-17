@@ -222,15 +222,74 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var LeftMenu = function (_React$Component) {
     _inherits(LeftMenu, _React$Component);
 
-    function LeftMenu() {
+    function LeftMenu(props) {
         _classCallCheck(this, LeftMenu);
 
-        return _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).apply(this, arguments));
+        //set initial state of this component
+        var _this = _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).call(this, props));
+
+        _this.state = {
+            new_post_text: '', //deafault value - empty string 
+            new_name: '',
+            duration: ''
+        };
+        return _this;
     }
 
     _createClass(LeftMenu, [{
+        key: 'formSubmitted',
+        value: function formSubmitted(event) {
+            var _this2 = this;
+
+            event.preventDefault(); // stop the form from actually being submitted
+            $.ajax({
+                method: 'post',
+                url: 'api/create-posts.php',
+                data: { // where we get data from
+                    name: this.state.new_name,
+                    text: this.state.new_post_text,
+                    duration: this.state.duration
+
+                },
+                success: function success(data) {
+                    // => doesnt need binding
+                    _this2.props.functionToRun();
+
+                    _this2.setState({
+                        new_post_text: '',
+                        new_name: '',
+                        duration: ''
+                    });
+                }
+            });
+        }
+    }, {
+        key: 'textChanged',
+        value: function textChanged(event) {
+            this.setState({
+                new_post_text: event.target.value
+
+            });
+        }
+    }, {
+        key: 'nameChanged',
+        value: function nameChanged(event) {
+            this.setState({
+                new_name: event.target.value
+            });
+        }
+    }, {
+        key: 'durationChanged',
+        value: function durationChanged(event) {
+            this.setState({
+                duration: event.target.value
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 'nav',
                 { className: 'Leftmenu' },
@@ -242,28 +301,25 @@ var LeftMenu = function (_React$Component) {
                 _react2.default.createElement(
                     'form',
                     { action: '' },
-                    'First name:',
-                    _react2.default.createElement('input', { type: 'text', name: 'firstname' }),
+                    'Name:',
+                    _react2.default.createElement('input', { type: 'text', name: 'firstname', value: this.state.new_name,
+                        onChange: function onChange(event) {
+                            return _this3.nameChanged(event);
+                        } }),
                     _react2.default.createElement('br', null),
-                    'Last name:',
-                    _react2.default.createElement('input', { type: 'text', name: 'lastname' }),
+                    'Job Description:',
+                    _react2.default.createElement('input', {
+                        name: 'desc', id: '', cols: '30', rows: '10', value: this.state.new_post_text,
+                        onChange: function onChange(event) {
+                            return _this3.textChanged(event);
+                        } }),
                     _react2.default.createElement('br', null),
-                    _react2.default.createElement(
-                        'textarea',
-                        { name: '', id: '', cols: '30', rows: '10' },
-                        'Insert Job Description Here'
-                    ),
-                    _react2.default.createElement('br', null),
-                    _react2.default.createElement(
-                        'button',
-                        null,
-                        'Start'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        null,
-                        'Stop'
-                    )
+                    'Time:',
+                    _react2.default.createElement('input', { type: 'text', name: 'Time', id: '', value: this.state.duration,
+                        onChange: function onChange(event) {
+                            return _this3.durationChanged(event);
+                        } }),
+                    _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
                 )
             );
         }

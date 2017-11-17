@@ -11138,11 +11138,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-=======
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
->>>>>>> 20abb5a0a71fec7225fa8b1649c795b9579b324b
 
 /***/ }),
 /* 12 */
@@ -28597,11 +28593,7 @@ module.exports = camelize;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
-<<<<<<< HEAD
-__webpack_require__(2);
-=======
 __webpack_require__(1);
->>>>>>> 20abb5a0a71fec7225fa8b1649c795b9579b324b
 module.exports = __webpack_require__(8);
 
 

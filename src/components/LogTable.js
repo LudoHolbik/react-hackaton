@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import $ from 'jquery';
+
+import Task from './Task';
 
 export default class LogTable extends React.Component{
     constructor(props) {
@@ -9,7 +12,7 @@ export default class LogTable extends React.Component{
         this.state = {
             logs: [],
 
-            orderby:'date',
+            orderby:'loged_at',
             limit: 10,
             from_friends_only: false,
             current_datetime: null
@@ -17,37 +20,38 @@ export default class LogTable extends React.Component{
         }
     }
     
-    // componentDidMount() {
+    componentDidMount(){
+        var self = this;
 
-    //    this.refreshLogs();
-    // }
-
-    // refreshLogs() {
-
-    //     $.ajax ({
-    //         method: 'get',
-    //         url: 'api/all-logs.php',
-    //         dataType: 'json',
-    //         success: (data) => {
-                
-    //             console.log(data);
-    //             this.setState({
-    //                 logs: data.logs
-    //             });
-    //         }
-    //     })  
-
-    // }
-
-    // newLogWasAdded(){
-        
-    //     this.refreshLogs();
-    //     this.props.logWasAdded();
-    // }
+        $.ajax ({
+            method: "get",
+            url: "api/all-logs.php",
+            dataType: "json",
+            success: (data) => {
+                console.log(data);
+                self.setState({
+                    logs: data.logs
+                });
+            }
+        })
+    }
 
     render() {
+        let logs = [];
+        for(let i in this.state.logs){
+            let log_data = this.state.logs[i];
+            logs[i] = <Task 
+                        key={ log_data.id }
+                        name = { log_data.name}
+                        text={ log_data.text}
+                        task_id = { log_data.task_id}
+                        duration = { log_data.duration}
+                        loged_at = { log_data.loged_at}
+                        task_name = { log_data.task_name}
+            />;
+        }
+
         return (
-           
             <table className="logtable">
                 <thead>
                     <tr>
@@ -59,19 +63,7 @@ export default class LogTable extends React.Component{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td rowSpan="2">Toilet Services</td>
-                        <td>Job Jobs</td>
-                        <td>Cleaned toilet</td>
-                        <td>5 mins</td>
-                        <td>12/02/2017</td>
-                    </tr>
-                    <tr>
-                        <td>Juan Carlos</td>
-                        <td>Messed up toilet</td>
-                        <td>1 mins</td>
-                        <td>12/02/2017</td>
-                    </tr>
+                    { logs }                
                 </tbody>
 
             </table>          

@@ -1,6 +1,21 @@
-webpackJsonp([0],{
-
-/***/ 16:
+webpackJsonp([0],[
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23,8 +38,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_Appcomponent2.default, null), document.getElementById('react-app'));
 
 /***/ }),
-
-/***/ 28:
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -118,8 +143,7 @@ var App = function (_React$Component) {
 exports.default = App;
 
 /***/ }),
-
-/***/ 29:
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -234,8 +258,7 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-
-/***/ 30:
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -338,8 +361,7 @@ var LeftMenu = function (_React$Component) {
 exports.default = LeftMenu;
 
 /***/ }),
-
-/***/ 31:
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -412,8 +434,7 @@ var Contacts = function (_React$Component) {
 exports.default = Contacts;
 
 /***/ }),
-
-/***/ 32:
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -566,8 +587,7 @@ var Feed = function (_React$Component) {
 exports.default = Feed;
 
 /***/ }),
-
-/***/ 33:
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -674,8 +694,7 @@ var NewPost = function (_React$Component) {
 exports.default = NewPost;
 
 /***/ }),
-
-/***/ 34:
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -753,8 +772,7 @@ var Post = function (_React$Component) {
 exports.default = Post;
 
 /***/ }),
-
-/***/ 35:
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -773,6 +791,14 @@ var _react2 = _interopRequireDefault(_react);
 var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _jquery = __webpack_require__(8);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Task = __webpack_require__(37);
+
+var _Task2 = _interopRequireDefault(_Task);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -793,7 +819,7 @@ var LogTable = function (_React$Component) {
         _this.state = {
             logs: [],
 
-            orderby: 'date',
+            orderby: 'loged_at',
             limit: 10,
             from_friends_only: false,
             current_datetime: null
@@ -802,37 +828,40 @@ var LogTable = function (_React$Component) {
         return _this;
     }
 
-    // componentDidMount() {
-
-    //    this.refreshLogs();
-    // }
-
-    // refreshLogs() {
-
-    //     $.ajax ({
-    //         method: 'get',
-    //         url: 'api/all-logs.php',
-    //         dataType: 'json',
-    //         success: (data) => {
-
-    //             console.log(data);
-    //             this.setState({
-    //                 logs: data.logs
-    //             });
-    //         }
-    //     })  
-
-    // }
-
-    // newLogWasAdded(){
-
-    //     this.refreshLogs();
-    //     this.props.logWasAdded();
-    // }
-
     _createClass(LogTable, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var self = this;
+
+            _jquery2.default.ajax({
+                method: "get",
+                url: "api/all-logs.php",
+                dataType: "json",
+                success: function success(data) {
+                    console.log(data);
+                    self.setState({
+                        logs: data.logs
+                    });
+                }
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var logs = [];
+            for (var i in this.state.logs) {
+                var log_data = this.state.logs[i];
+                logs[i] = _react2.default.createElement(_Task2.default, {
+                    key: log_data.id,
+                    name: log_data.name,
+                    text: log_data.text,
+                    task_id: log_data.task_id,
+                    duration: log_data.duration,
+                    loged_at: log_data.loged_at,
+                    task_name: log_data.task_name
+                });
+            }
+
             return _react2.default.createElement(
                 'table',
                 { className: 'logtable' },
@@ -872,59 +901,7 @@ var LogTable = function (_React$Component) {
                 _react2.default.createElement(
                     'tbody',
                     null,
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            { rowSpan: '2' },
-                            'Toilet Services'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Job Jobs'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Cleaned toilet'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '5 mins'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '12/02/2017'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Juan Carlos'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            'Messed up toilet'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '1 mins'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '12/02/2017'
-                        )
-                    )
+                    logs
                 )
             );
         }
@@ -935,6 +912,84 @@ var LogTable = function (_React$Component) {
 
 exports.default = LogTable;
 
-/***/ })
+/***/ }),
+/* 36 */,
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
 
-},[16]);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(1);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Task = function (_React$Component) {
+    _inherits(Task, _React$Component);
+
+    function Task() {
+        _classCallCheck(this, Task);
+
+        return _possibleConstructorReturn(this, (Task.__proto__ || Object.getPrototypeOf(Task)).apply(this, arguments));
+    }
+
+    _createClass(Task, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'tr',
+                { className: 'task' },
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.task_name
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.name
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.text
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.duration
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.loged_at
+                )
+            );
+        }
+    }]);
+
+    return Task;
+}(_react2.default.Component);
+
+exports.default = Task;
+
+/***/ })
+],[16]);

@@ -34,10 +34,7 @@ constructor(props){
     <input className="timerlabel" type="radio" id="stop" name="control"/>
     <input className="timerlabel" type="radio" id="start" name="control"/>
     <input className="timerlabel" type="reset" id="reset" name="control"/>
-    <input className="timerlabel" type="checkbox" id="lap_1" name="lap"/>
-    <input className="timerlabel" type="checkbox" id="lap_2" name="lap"/>
-    <input className="timerlabel" type="checkbox" id="lap_3" name="lap"/>
-    <input className="timerlabel" type="checkbox" id="lap_4" name="lap"/>
+
 
                     <time><i></i><b></b><i></i><b></b><i></i></time>
 

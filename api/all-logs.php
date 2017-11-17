@@ -5,7 +5,7 @@ require 'setup.php';
 $query = "
     SELECT `logs`.*, `task`.`name` AS `task_name`
     FROM `logs`
-    INNER JOIN `task` ON `logs`.`task_id` = `task`.`id`
+    LEFT JOIN `task` ON `logs`.`task_id` = `task`.`id`
     WHERE 1
 ";
 

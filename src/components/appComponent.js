@@ -7,6 +7,7 @@ import Contacts from './contactsMenuComponent';
 import Feed from './feedComponent';
 import LogTable from './LogTable';
 import TaskTable from './TaskTable';
+import Task from './taskComponent';
 
 export default class App extends React.Component
 {
@@ -28,9 +29,8 @@ export default class App extends React.Component
                 <div id="content">
                     <div id="form">
                         <LeftMenu />
-                        <Feed postWasAdded = {this.postWasAdded.bind(this)}/>                            
                     </div>
-
+                        <Task />
                     <div id="tables">
                         <LogTable />
                         <TaskTable />

@@ -193,7 +193,7 @@ exports.default = Header;
 
 
 Object.defineProperty(exports, "__esModule", {
-            value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -215,45 +215,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var LeftMenu = function (_React$Component) {
-            _inherits(LeftMenu, _React$Component);
+    _inherits(LeftMenu, _React$Component);
 
-            function LeftMenu() {
-                        _classCallCheck(this, LeftMenu);
+    function LeftMenu() {
+        _classCallCheck(this, LeftMenu);
 
-                        return _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).apply(this, arguments));
-            }
+        return _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).apply(this, arguments));
+    }
 
-            _createClass(LeftMenu, [{
-                        key: 'render',
-                        value: function render() {
-                                    return _react2.default.createElement(
-                                                'nav',
-                                                { className: 'Leftmenu' },
-                                                _react2.default.createElement(
-                                                            'h2',
-                                                            null,
-                                                            'You'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Selected posts'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Messenger'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Marketplace'
-                                                )
-                                    );
-                        }
-            }]);
+    _createClass(LeftMenu, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'nav',
+                { className: 'Leftmenu' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Insert Form'
+                ),
+                _react2.default.createElement(
+                    'form',
+                    { action: '' },
+                    'First name:',
+                    _react2.default.createElement('input', { type: 'text', name: 'firstname' }),
+                    _react2.default.createElement('br', null),
+                    'Last name:',
+                    _react2.default.createElement('input', { type: 'text', name: 'lastname' }),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'textarea',
+                        { name: '', id: '', cols: '30', rows: '10' },
+                        'Insert Job Description Here'
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'button',
+                        null,
+                        'Start'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        null,
+                        'Stop'
+                    )
+                )
+            );
+        }
+    }]);
 
-            return LeftMenu;
+    return LeftMenu;
 }(_react2.default.Component);
 
 exports.default = LeftMenu;
@@ -354,7 +365,7 @@ var _reactDom = __webpack_require__(2);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -508,7 +519,7 @@ var _reactDom = __webpack_require__(2);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 

@@ -10,11 +10,29 @@ export default class LeftMenu extends React.Component{
 
             <nav className="Leftmenu">
 
-                <h2>You</h2>
+                <h2>Insert Form</h2>
 
-                <a href="#">Selected posts</a>
-                <a href="#">Messenger</a>
-                <a href="#">Marketplace</a>
+                    <form action="">
+                
+            
+                            First name:
+                            <input type="text" name="firstname"/>
+                            <br>
+                            </br>
+                            Last name:
+                            <input type="text" name="lastname"/>
+                            <br>
+                            </br>
+
+
+                            <textarea name="" id="" cols="30" rows="10">Insert Job Description Here</textarea>
+                            <br>
+                            </br>
+
+                            <button>Start</button>
+                            <button>Stop</button>
+                        
+                    </form>
 
             </nav>          
 

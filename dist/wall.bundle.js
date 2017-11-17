@@ -167,13 +167,57 @@ var Header = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'header',
-                null,
-                'Unread posts: ',
+                'div',
+                { className: 'timer' },
                 _react2.default.createElement(
-                    'span',
-                    { className: 'unread' },
-                    this.state.unread_posts
+                    'header',
+                    null,
+                    'Unread posts: ',
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'unread' },
+                        this.state.unread_posts
+                    )
+                ),
+                _react2.default.createElement(
+                    'form',
+                    { className: 'container' },
+                    _react2.default.createElement('input', { type: 'radio', id: 'init', name: 'control', checked: 'checked' }),
+                    _react2.default.createElement('input', { type: 'radio', id: 'stop', name: 'control' }),
+                    _react2.default.createElement('input', { type: 'radio', id: 'start', name: 'control' }),
+                    _react2.default.createElement('input', { type: 'reset', id: 'reset', name: 'control' }),
+                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_1', name: 'lap' }),
+                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_2', name: 'lap' }),
+                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_3', name: 'lap' }),
+                    _react2.default.createElement('input', { type: 'checkbox', id: 'lap_4', name: 'lap' }),
+                    _react2.default.createElement(
+                        'time',
+                        null,
+                        _react2.default.createElement('i', null),
+                        _react2.default.createElement('b', null),
+                        _react2.default.createElement('i', null),
+                        _react2.default.createElement('b', null),
+                        _react2.default.createElement('i', null)
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'controls' },
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'stop' },
+                            'Stop'
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'start' },
+                            'Start'
+                        ),
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'reset' },
+                            'Reset'
+                        )
+                    )
                 )
             );
         }
@@ -193,7 +237,7 @@ exports.default = Header;
 
 
 Object.defineProperty(exports, "__esModule", {
-            value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -215,45 +259,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var LeftMenu = function (_React$Component) {
-            _inherits(LeftMenu, _React$Component);
+    _inherits(LeftMenu, _React$Component);
 
-            function LeftMenu() {
-                        _classCallCheck(this, LeftMenu);
+    function LeftMenu() {
+        _classCallCheck(this, LeftMenu);
 
-                        return _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).apply(this, arguments));
-            }
+        return _possibleConstructorReturn(this, (LeftMenu.__proto__ || Object.getPrototypeOf(LeftMenu)).apply(this, arguments));
+    }
 
-            _createClass(LeftMenu, [{
-                        key: 'render',
-                        value: function render() {
-                                    return _react2.default.createElement(
-                                                'nav',
-                                                { className: 'Leftmenu' },
-                                                _react2.default.createElement(
-                                                            'h2',
-                                                            null,
-                                                            'You'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Selected posts'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Messenger'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'a',
-                                                            { href: '#' },
-                                                            'Marketplace'
-                                                )
-                                    );
-                        }
-            }]);
+    _createClass(LeftMenu, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'nav',
+                { className: 'Leftmenu' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'You'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    'Selected posts'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    'Messenger'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { href: '#' },
+                    'Marketplace'
+                )
+            );
+        }
+    }]);
 
-            return LeftMenu;
+    return LeftMenu;
 }(_react2.default.Component);
 
 exports.default = LeftMenu;
@@ -354,7 +398,7 @@ var _reactDom = __webpack_require__(2);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -508,7 +552,7 @@ var _reactDom = __webpack_require__(2);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _jquery = __webpack_require__(15);
+var _jquery = __webpack_require__(8);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -603,7 +647,7 @@ exports.default = NewPost;
 
 
 Object.defineProperty(exports, "__esModule", {
-            value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -625,50 +669,50 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Post = function (_React$Component) {
-            _inherits(Post, _React$Component);
+    _inherits(Post, _React$Component);
 
-            function Post() {
-                        _classCallCheck(this, Post);
+    function Post() {
+        _classCallCheck(this, Post);
 
-                        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
-            }
+        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+    }
 
-            _createClass(Post, [{
-                        key: 'render',
-                        value: function render() {
-                                    return _react2.default.createElement(
-                                                'li',
-                                                { className: 'post' },
-                                                _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'user' },
-                                                            'You'
-                                                ),
-                                                _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'time' },
-                                                            this.props.published_at
-                                                ),
-                                                _react2.default.createElement(
-                                                            'h3',
-                                                            null,
-                                                            this.props.title
-                                                ),
-                                                _react2.default.createElement(
-                                                            'p',
-                                                            null,
-                                                            this.props.text
-                                                ),
-                                                _react2.default.createElement(
-                                                            'p',
-                                                            null,
-                                                            this.props.likes
-                                                )
-                                    );
-                        }
-            }]);
+    _createClass(Post, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'li',
+                { className: 'post' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'user' },
+                    'You'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'time' },
+                    this.props.published_at
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    this.props.title
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.text
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    this.props.likes
+                )
+            );
+        }
+    }]);
 
-            return Post;
+    return Post;
 }(_react2.default.Component);
 
 exports.default = Post;

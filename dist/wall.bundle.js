@@ -290,6 +290,10 @@ var _reactDom = __webpack_require__(1);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _jquery = __webpack_require__(6);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -321,7 +325,7 @@ var LeftMenu = function (_React$Component) {
             var _this2 = this;
 
             event.preventDefault(); // stop the form from actually being submitted
-            $.ajax({
+            _jquery2.default.ajax({
                 method: 'post',
                 url: 'api/create-posts.php',
                 data: { // where we get data from
@@ -332,7 +336,7 @@ var LeftMenu = function (_React$Component) {
                 },
                 success: function success(data) {
                     // => doesnt need binding
-                    _this2.props.functionToRun();
+
 
                     _this2.setState({
                         new_post_text: '',
@@ -379,7 +383,9 @@ var LeftMenu = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'form',
-                    { action: '' },
+                    { action: '', onSubmit: function onSubmit(event) {
+                            return _this3.formSubmitted(event);
+                        } },
                     'Name:',
                     _react2.default.createElement('input', { type: 'text', name: 'firstname', value: this.state.new_name,
                         onChange: function onChange(event) {

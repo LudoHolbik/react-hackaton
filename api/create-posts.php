@@ -2,8 +2,9 @@
 
 require 'setup.php';
 
-$title = isset($_POST['title']) ? $_POST['title'] : null;
-$text = isset($_POST['text']) ? $_POST['text'] : null;
+$title = isset($_POST['firstname']) ? $_POST['firstname'] : null;
+$text = isset($_POST['desc']) ? $_POST['desc'] : null;
+$duration = isset($_POST['Time']) ? $_POST['Time'] : null;
 
 if(!trim($text))
 {
@@ -17,20 +18,20 @@ if(!trim($text))
 }
 
 $query = "
-    INSERT INTO `posts`
-    (`title`, `text`, `published_at`)
+    INSERT INTO `logs`
+    (`name`, `text`, `duration`)
     VALUES
     (?, ?, ?)
 ";
 
-$stmt = db::execute($query, [$title, $text, date('Y-m-d H:i:s')]);
+$stmt = db::execute($query, [$title, $text, $duration, date('Y-m-d H:i:s')]);
 
 $id = db::pdo()->lastInsertId();
 
 $query = "
-    SELECT `posts`.*
-    FROM `posts`
-    WHERE `posts`.`id` = ?
+    SELECT *
+    FROM `logs`
+    WHERE `logs`.`id` = ?
 ";
 
 $stmt = db::execute($query, [$id]);
@@ -44,7 +45,7 @@ foreach($stmt as $row)
 
 $response = array(
     'status' => 'OK',
-    'post' => $post
+    'logs' => $post
 );
 
 echo json_encode($response);

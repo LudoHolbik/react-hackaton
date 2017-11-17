@@ -28595,7 +28595,11 @@ module.exports = camelize;
 
 __webpack_require__(0);
 __webpack_require__(1);
+<<<<<<< HEAD
+module.exports = __webpack_require__(8);
+=======
 module.exports = __webpack_require__(6);
+>>>>>>> 8c6563ecddae07c0084bc970b4e79fe880da1581
 
 
 /***/ })
